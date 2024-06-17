@@ -4,8 +4,8 @@ kong:
   env:
     database: "off"
     dns_order: A,CNAME,LAST,SRV
-    # dns_no_sync: "on"
   dblessConfig:
+    # PROBLEM: cannot use "{{ .Release.Name }}-kong-config" because templating does not work in values.yml
     configMap: kong-config
   ingressController:
     enabled: false
